@@ -1,0 +1,229 @@
+
+.cart-body {
+    display: flex;
+    flex-direction: column;
+    margin-left:0.5rem; 
+    margin-right: 0.5rem;
+}
+
+.cartbody-clear {
+    display: none;
+    /* box-shadow: none; */
+}
+
+.cart-main {
+    line-height: 2.2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 2px solid var(--primaryColor);
+    padding-top: var(--paddingTop);
+
+}
+.cart-submain {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-submain2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 0.4rem;
+    margin-left: 2rem;
+}
+
+/* 
+.cart-size {
+    display: flex;
+    flex-direction: column;
+} */
+/* 
+.box {
+     display: flex;
+    flex-direction: row;
+    width: 10rem;
+}
+
+.box ul {
+    padding: 0;
+    margin: 0;
+    clear:both
+} 
+
+.box li {
+    list-style-type: none;
+    padding-right: 0.5rem;
+    float: left;
+    position: relative;
+}
+
+
+.box input[type="radio"]:not(:checked), 
+input[type="radio"]:checked {
+  position: absolute;
+  left: -9999%;
+ 
+}
+
+.box input[type="radio"] + label {
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 4px;
+  color: black;
+  background-color: white;
+  margin-bottom: 10px;
+  height: 2rem;
+  width: 2rem;
+  text-align: center; 
+}
+
+.box input[type="radio"]:checked + label {
+  border: 1px solid white;
+  color: white;
+  background-color: black;
+
+}
+
+.box input[type = 'radio'] :checked {
+  border: 2px solid white;
+  color: white;
+  background-color: black;
+}
+
+
+.box2 {
+    display: flex;
+    flex-direction: row;
+    width: 10rem;
+
+}
+
+.box2 ul {
+    padding: 0;
+    margin: 0;
+    clear:both
+} 
+
+.box2 li {
+    list-style-type: none;
+    padding-right: 0.5rem;
+    float: left;
+    position: relative;
+}
+
+
+.box2 input[type="radio"]:not(:checked), 
+input[type="radio"]:checked {
+  position: absolute;
+  left: -9999%;
+ 
+}
+
+.box2 input[type="radio"] + label {
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  height: 2rem;
+  width: 2rem;
+  text-align: center; 
+} */
+
+.box2 input.color-box-red[type="radio"] + label {
+background-color: red;
+}
+
+
+.box2 input.color-box-green[type="radio"] + label {
+background-color: green;
+}
+
+
+.box2 input.color-box-blue[type="radio"] + label {
+background-color: blue;
+}
+
+
+.box2 input.color-box-white[type="radio"] + label {
+background-color: white;
+}
+
+
+.box2 input[type="radio"]:checked + label {
+  border: 4px solid black; 
+} 
+
+.increment {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    height: 90%;
+
+} 
+
+.increase {
+    border:2px solid black;
+    cursor:pointer;
+    color: black;
+    background-color: white;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-weight: 1000;
+    text-align: center;
+}
+
+.decrease {
+    border:2px solid black;
+    cursor:pointer;
+    color: black;
+    background-color: white;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+.product-image {
+    height: 100%;
+}
+
+
+.total {
+    line-height: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* margin-top: 1rem ; */
+}
+
+.cart-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem 0.5rem
+}
+
+.view-bag {
+    width: 8.5rem;
+    height: 3rem;
+    cursor:pointer;
+    background-color: white;
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+    border:3px solid var(--primaryColor);
+}
+
+.checkout {
+    width: 8.5rem;
+    height: 3rem;
+    cursor:pointer;
+    background-color: var(--secondaryColor);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    border:3px solid var(--secondaryColor);
+}

@@ -1,0 +1,135 @@
+
+.cartpage-size {
+  width: 20rem;
+  height: 10rem;
+  /* transform: translateX(2);
+  transform: translateY(2);
+} */
+}
+
+.pagecart-size {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.page-box {
+    display: flex;
+    flex-direction: row;
+    width: 20rem;
+}
+
+.page-box ul {
+    padding: 0;
+    margin: 0;
+    clear:both
+} 
+
+.page-box li {
+    list-style-type: none;
+    padding-right: 0.5rem;
+    float: left;
+    position: relative;
+}
+
+
+.page-box input[type="radio"]:not(:checked), 
+input[type="radio"]:checked {
+  position: absolute;
+  left: -9999%;
+ 
+}
+
+.page-box input[type="radio"] + label {
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 4px;
+  color: black;
+  background-color: white;
+  padding-top: 5px;
+  margin-bottom: 10px;
+ height: 3rem;
+  width: 4rem;
+  text-align: center; 
+}
+
+.page-box input[type="radio"]:checked + label {
+  border: 1px solid white;
+  color: white;
+  background-color: black;
+
+}
+
+.page-box input[type = 'radio'] :checked {
+  border: 2px solid white;
+  color: white;
+  background-color: black;
+}
+
+
+.page-box2 {
+    display: flex;
+    flex-direction: row;
+    width: 20rem;
+
+}
+
+.page-box2 ul {
+    padding: 0;
+    margin: 0;
+    clear:both
+} 
+
+.page-box2 li {
+    list-style-type: none;
+    padding-right: 0.5rem;
+    float: left;
+    position: relative;
+}
+
+
+.page-box2 input[type="radio"]:not(:checked), 
+input[type="radio"]:checked {
+  position: absolute;
+  left: -9999%;
+ 
+}
+
+.page-box2 input[type="radio"] + label {
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding-top: 12px;
+  margin-bottom: 10px;
+  height: 2rem;
+  width: 2rem;
+  text-align: center; 
+}
+
+
+.page-box2 input.color-box-red[type="radio"] + label {
+background-color: red;
+}
+
+
+.page-box2 input.color-box-green[type="radio"] + label {
+background-color: green;
+}
+
+
+.page-box2 input.color-box-blue[type="radio"] + label {
+background-color: blue;
+}
+
+
+.page-box2 input.color-box-white[type="radio"] + label {
+background-color: white;
+}
+
+
+.page-box2 input[type="radio"]:checked + label {
+  border: 4px solid black; 
+} 
+

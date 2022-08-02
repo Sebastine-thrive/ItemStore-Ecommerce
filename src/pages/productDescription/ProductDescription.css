@@ -1,0 +1,113 @@
+.pdt-desc-body {
+    margin-top: 4rem;
+    margin-left:0.5rem; 
+    margin-right: 0.5rem;
+    padding: var(--paddingX);
+}
+
+.pdt-desc-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.pdt-desc-submain {
+    display: flex;
+    flex-direction: row;
+    width: 65%;
+}
+
+.pdt-desc-thumbnails {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:40%;
+    height: 20%;
+    margin-right: 0.2rem;
+    /* padding-bottom: 2rem; */
+} 
+
+.pdt-desc-submain2 {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    line-height:2rem;
+    margin-left: 2.5rem;
+}
+
+.pdt-desc-name {
+float: left;
+margin-bottom: 1rem;
+}
+
+.pdt-desc-name h3{
+    margin: 0;
+    padding-left: 0;
+}
+
+.pdt-desc-attr{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 17.5rem;
+    margin-bottom: 1rem;
+}
+
+.price {
+margin-bottom: 1rem;
+}
+
+.Box {
+    display: flex;
+    flex-direction: row;
+    width: 20rem;
+}
+
+.Box ul {
+    padding: 0;
+    margin: 0;
+    clear:both
+} 
+
+
+.Box li {
+    list-style-type: none;
+    padding-right: 0.5rem;
+    float: left;
+    position: relative;
+}
+
+.Box input[type="radio"]:not(:checked), 
+input[type="radio"]:checked {
+  position: absolute;
+  left: -9999%;
+}
+
+.Box input[type="radio"] + label {
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 4px;
+  color: black;
+  /* background-color: blue; */
+  margin-bottom: 10px;
+  height: 2.5rem;
+  width: 4rem;
+  text-align: center; 
+  padding-top: 0.3rem;
+
+}
+
+.Box input[type="radio"]:checked + label {
+  border: 1px solid white;
+  color: white;
+  border: 4px solid white;
+  background-color: green;
+
+}
+
+.Box input[type = 'radio'] :checked {
+  border: 4px solid white;
+  color: white;
+  background-color: green;
+}  

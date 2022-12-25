@@ -1,0 +1,177 @@
+
+.cart-body {
+    display: flex;
+    flex-direction: column;
+    margin-left:0.5rem; 
+    margin-right: 0.5rem;
+    max-height: 35rem;
+    overflow-y: auto;
+    position: relative;
+}
+
+.cart-body li {
+    list-style-type: none;
+}
+
+.cart-body .heading {
+    position: fixed;
+}
+
+.cart-main {
+    line-height: 2.2rem;
+    display: flex;
+    flex-direction: row;
+    padding-top: var(--paddingTop);
+    margin-top: 2rem;
+    margin-right: 1rem;
+
+}
+.cart-submain {
+    margin-top: 0;
+    padding-top: 0.5rem; 
+    padding-bottom: 0.4rem;
+    margin-right: 0.6rem;
+    width: 17rem;
+    max-height: 13rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-submain h2{
+    margin-top: 1rem;
+}
+
+.cart-submain h3 {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.cart-submain .pdt-amount {
+    color: var(--secondaryColor);
+    font-weight: 600;
+}
+
+.cart-submain2 {
+    width: 13rem;
+    max-height: 13rem;
+    padding-top: 0.5rem; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.item-brand {
+    margin-top: 0;
+}
+
+.item-name {
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.item-attr {
+    width: 2rem;
+    height: 2rem;
+}
+ 
+ .color {
+    border: 1px solid black;
+}
+
+.increment {
+    margin-top: 0;
+    padding-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+
+} 
+
+.increase {
+    border:2px solid black;
+    cursor:pointer;
+    color: black;
+    background-color: white;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-weight: 1000;
+    text-align: center;
+}
+
+.decrease {
+    border:2px solid black;
+    cursor:pointer;
+    color: black;
+    background-color: white;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+.product-image {
+    width: 8rem;
+    max-height: 13rem;
+    padding-top: 0.5rem; 
+    margin-left: 0.5rem;
+}
+
+.total {
+    line-height: 1.5rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.total .overall-price {
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.hidden {
+    display: none;
+}
+
+.cart-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    margin-right: 1rem;
+}
+
+.view-bag {
+    width: 9rem;
+    height: 2.8rem;
+    cursor:pointer;
+    background-color: white;
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+    border:3px solid var(--primaryColor);
+}
+
+.view-bag:hover {
+    background: white;
+    color: var(--primaryColor);
+    border: none;
+}
+
+.checkout {
+    width: 9rem;
+    height: 2.8rem;
+    cursor:pointer;
+    background-color: var(--secondaryColor);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    border:3px solid var(--secondaryColor);
+}
+.checkout:hover {
+    background: white;
+    color: var(--secondaryColor);
+}

@@ -1,5 +1,5 @@
 .pdt-desc-body {
-    margin-top: 4rem;
+    margin-top: 6rem;
     margin-left:0.5rem; 
     margin-right: 0.5rem;
     padding: var(--paddingX);
@@ -20,12 +20,44 @@
 .pdt-desc-thumbnails {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width:40%;
-    height: 20%;
+    gap: 10px;
     margin-right: 0.2rem;
     /* padding-bottom: 2rem; */
 } 
+
+.item-quantity {
+    font-size: 1.3rem;
+}
+
+.item-brand {
+    margin-top: 0.5rem;
+}
+
+.item-name {
+    margin-top: 0;
+}
+
+.small-image {
+    border-radius: 8px;
+    background-color: #ebebeb;
+    width: 70px;
+    height: 70px;
+}
+
+.large-image {
+     border-radius: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+.pdt-desc-image {
+   background-color: #ebebeb;
+   width: 600px;
+   height: 600px;
+   border-radius: 15px;
+}
 
 .pdt-desc-submain2 {
     display: flex;
@@ -36,13 +68,18 @@
 }
 
 .pdt-desc-name {
-float: left;
-margin-bottom: 1rem;
+    float: left;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .pdt-desc-name h3{
     margin: 0;
     padding-left: 0;
+}
+.pdt-attr {
+    text-transform: uppercase;
+
 }
 
 .pdt-desc-attr{
@@ -50,64 +87,146 @@ margin-bottom: 1rem;
     flex-direction: row;
     justify-content: space-between;
     width: 17.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .price {
-margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
-.Box {
+
+.box {
     display: flex;
     flex-direction: row;
     width: 20rem;
 }
 
-.Box ul {
+.box ul {
     padding: 0;
     margin: 0;
     clear:both
 } 
 
 
-.Box li {
+.box li {
     list-style-type: none;
     padding-right: 0.5rem;
     float: left;
     position: relative;
 }
 
-.Box input[type="radio"]:not(:checked), 
-input[type="radio"]:checked {
+.box input[type="radio"]:not(:checked), 
+     input[type="radio"]:checked {
   position: absolute;
-  left: -9999%;
+  left: 5%;
+  top: 10%;
+  height: 2.5rem;
+  width: 4rem;
+  opacity: 0;
 }
 
-.Box input[type="radio"] + label {
+
+
+.box input[type="radio"] + label {
   display: inline-block;
   cursor: pointer;
   border: 1px solid black;
   border-radius: 4px;
   color: black;
-  /* background-color: blue; */
   margin-bottom: 10px;
   height: 2.5rem;
   width: 4rem;
   text-align: center; 
   padding-top: 0.3rem;
-
+ 
 }
 
-.Box input[type="radio"]:checked + label {
+.box input[type="radio"]:checked + label {
   border: 1px solid white;
   color: white;
-  border: 4px solid white;
+  border: 6px outset #EAFF82;
   background-color: green;
-
 }
 
-.Box input[type = 'radio'] :checked {
-  border: 4px solid white;
-  color: white;
-  background-color: green;
-}  
+.add-to-cart-button {
+    width: 17.5rem;
+    height: 3rem;
+    cursor:pointer;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: var(--secondaryColor);
+    border:3px solid var(--secondaryColor);
+    border-radius: 4px;
+}
+
+.description {
+    margin: 1rem 0;
+}
+
+.description p {
+    max-height: 10rem;
+    overflow-y: auto;
+}
+
+/* Media Queries */
+
+@media(max-width: 769px) {
+ .pdt-desc-image {
+     width: 330px;
+     height: 480px;
+ }
+ .large-image {
+     width: 330px;
+     height: 480px;
+ }
+
+ .pdt-desc-submain2 {
+    margin-left: 0.5rem;
+ }
+
+    .box input[type="radio"] + label {
+        width: 3.1rem;
+        height: 3rem;
+    }
+}
+
+@media(max-width: 600px) {
+    .pdt-desc-main {
+        flex-direction: column;
+    }
+
+    .pdt-desc-submain {
+        transform: scale(0.9);
+    }
+
+ .pdt-desc-submain2 {
+        padding-left: 1.3rem;
+    }
+
+    .description {
+        width: 15rem;
+    }
+    .box input[type="radio"] + label {
+        width: 3rem;
+        height: 3rem;
+    }
+}
+
+@media(max-width: 415px) {
+
+    
+    .pdt-desc-submain {
+        transform: scale(0.7);
+    }
+    .pdt-desc-body {
+        padding-left: 1rem;
+    }
+    .pdt-desc-name {
+        width: 10rem;
+    }
+    .pdt-desc-submain2 {
+        padding-left: 1.3rem;
+    }
+}
+

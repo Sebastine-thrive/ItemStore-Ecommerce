@@ -1,237 +1,264 @@
-/* 
+
 .cartpage-body {
     display: flex;
     flex-direction: column;
+    margin-top: 6rem;
     margin-left:0.5rem; 
     margin-right: 0.5rem;
     padding: var(--paddingX);
 }
 
-.cart-heading {
-    font-weight: 600;
-    padding:var(--paddingY)
+.cartpage-body h2 {
+    margin-bottom: 2rem;
 }
 
 .cartpage-main {
-    height: 25rem;
-    line-height: 2.2;
+    line-height: 2.2rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-top: 2px solid var(--primaryColor);
+    border-top: 1px solid var(--primaryColor);
     padding-top: var(--paddingTop);
+    padding-bottom: 1rem;
 
 }
 .cartpage-submain {
+    width: 20rem;
+    margin-left: 0;
+    margin-top: 0;
+    padding-top: 0.5rem; 
+    padding-bottom: 0.4rem;
+    padding-left: 0;
+    margin-right: 0.6rem;
+    max-height: 13rem;
     display: flex;
     flex-direction: column;
-    height:23rem;
-    padding-top: 0.4rem;
+}
 
-} 
+.cartpage-submain h2{
+    margin-top: 1rem;
+}
+
+.cartpage-submain h3 {
+    margin-left: 0; 
+     padding-left: 0;
+}
 
 .cartpage-submain2 {
+    width: 20vw;
+    max-height: 13rem;
+    padding-top: 0.5rem; 
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    height:23rem;
-    padding-top: 0.4rem;
-    margin-left: 2rem;
+    padding-bottom: 0.4rem;
 }
 
-.cartpage-size {
-    display: flex;
-    flex-direction: column;
+.cartpage-submain .item-brand {
+    margin-top: 0;
+    margin-left: 0;
 }
 
-.cartpage-box {
-     display: flex;
-    flex-direction: row;
-    width: 20rem;
+.cartpage-submain .item-name {
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-top: 0;
 }
 
-.cartpage-box ul {
-    padding: 0;
-    margin: 0;
-    clear:both
-} 
-
-.cartpage-box li {
-    list-style-type: none;
-    padding-right: 0.5rem;
-    float: left;
-    position: relative;
+.cartpage-submain .item-attr {
+    width: 2rem;
+    height: 2rem;
 }
 
-.cartpage-box input[type="radio"]:not(:checked), 
-input[type="radio"]:checked {
-  position: absolute;
-  left: -9999%;
- 
-}
-
-.cartpage-box input[type="radio"] + label {
-  display: inline-block;
-  cursor: pointer;
-  border: 1px solid black;
-  border-radius: 4px;
-  color: black;
-  background-color: white;
-  padding-top: 5px;
-  margin-bottom: 10px;
-  height: 3rem;
-  width: 4rem;
-  text-align: center; 
-}
-
-.cartpage-box input[type="radio"]:checked + label {
-  border: 1px solid white;
-  color: white;
-  background-color: black;
-
-}
-
-.cartpage-box input[type = 'radio'] :checked {
-  border: 2px solid white;
-  color: white;
-  background-color: black;
-}
-
-
-.cartpage-box2 {
-    display: flex;
-    flex-direction: row;
-    width: 20rem;
-}
-
-.cartpage-box2 ul {
-    padding: 0;
-    margin: 0;
-    clear:both
-} 
-
-.cartpage-box2 li {
-    list-style-type: none;
-    padding-right: 0.5rem;
-    float: left;
-    position: relative;
-}
-
-
-.cartpage-box2 input[type="radio"]:not(:checked), 
-input[type="radio"]:checked {
-  position: absolute;
-  left: -9999%;
-}
-
-.cartpage-box2 input[type="radio"] + label {
-  display: inline-block;
-  cursor: pointer;
-  border: 1px solid black;
-  border-radius: 4px;
-  padding-top: 12px;
-  margin-bottom: 10px;
-  height: 2rem;
-  width: 2rem;
-  text-align: center; 
-}
-/* 
-.cartpage-box2 input.color-box-red[type="radio"] + label {
-background-color: red;
-}
-
-
-.cartpage-box2 input.color-box-green[type="radio"] + label {
-background-color: green;
-}
-
-
-.cartpage-box2 input.color-box-blue[type="radio"] + label {
-background-color: blue;
-}
-
-
-.cartpage-box2 input.color-box-white[type="radio"] + label {
-background-color: white;
-}
-
-
-.cartpage-box2 input[type="radio"]:checked + label {
-  border: 4px solid black; 
-}  */
-
-/*
-.cartpage-increment {
+.cartpage-submain2 .increment {
+    margin-top: 0;
+    padding-top: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content:space-between;
-    height: 100%;
 } 
 
-.cartpage-increase {
+.cartpage-submain2 .increment .increase {
     border:2px solid black;
     cursor:pointer;
     color: black;
     background-color: white;
-    width: 1rem;
-    height: 1rem;
-    font-weight: 800;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-weight: 1000;
     text-align: center;
 }
 
-.cartpage-decrease {
+.cartpage-submain2 .increment .decrease {
     border:2px solid black;
     cursor:pointer;
     color: black;
     background-color: white;
-    width: 1rem;
-    height: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
     font-weight: 800;
     text-align: center;
 }
 
-.cartpage-product-image {
-    height: 100%;
-    background-color: black;
+.cartpage-submain2 .product-image {
+    width: 13rem;
+    max-height: 13rem;
+    padding-top: 0.5rem; 
+    padding-left: 0.5rem;
 }
 
 
-.cartpage-finance {
+.item-image-container {
+  width: 13rem;
+  height: 12.5rem;
+  padding: 5px;
+  position: relative;
+}
+
+
+.item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  overflow: hidden;
+}
+
+
+.item-image-button-container {
+  position: absolute;
+  display: flex;
+  top: 70%;
+  left: 82%;
+  width: 50%;
+}
+
+.item-image-button {
+  border: none;
+  background: rgba(0, 0, 0, 0.1);
+  width: 30px;
+  height: 30px;
+}
+
+ .button2 {
+ margin-left: 1rem;
+}
+.item-image-button > svg {
+  scale: 1.5;
+}
+
+
+.slider-img{
+  width: 100%;
+  height: 80%;
+}
+
+.item-attr {
+    width: 2rem;
+    height: 2rem;
+}
+
+ .color {
+    border: 1px solid black;
+}
+
+.cartpage-total {
+    display: flex;
+    flex-direction: column;
     line-height: 1.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--primaryColor);
+}
+.cartpage-total div {
     display: flex;
-    flex-direction: row;
-    width: 17.5rem;
-    justify-content: space-between;
-    margin-top: 1rem ;
+    /* width: 12rem; */
+
 }
 
-.cartpage-finance p {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.cartpage-total p {
+    width: 8rem;
 }
 
-.cartpage-finance p span {
-    display: flex;
-    flex-direction: row;
+.cartpage-total p  span {
+    align-items: flex-start;
+    text-align:end;
 }
-*
-
-/* 
-.cartpage-finance  span{
-    float: left;
-} */
-
-/* 
 
 .cartpage-button {
-    width: 17.5rem;
-    height: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    /* padding: 0.5rem 0.5rem */
+}
+
+.cartpage-button  .cartpage-checkout {
+    width: 13.5rem;
+    height: 2.8rem;
     cursor:pointer;
+    background-color: var(--secondaryColor);
     color: white;
     font-size: 15px;
     font-weight: 600;
-    background-color: var(--secondaryColor);
     border:3px solid var(--secondaryColor);
-    border-radius: 4px;
-} */ 
+    margin-bottom: 1rem;
+
+}
+.cartpage-button .cartpage-checkout:hover {
+    background: white;
+    color: var(--secondaryColor);
+    border: 3px solid;
+}
+
+.overlay {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   width: 100%;
+   background: rgba(0,0, 0, 0.1);
+   backdrop-filter: blur(3px);
+   z-index: 1;
+}   
+
+.pdt-amount {
+    color: var(--secondaryColor);
+}
+
+
+
+/* Media Queries */
+
+@media(max-width: 600px) {
+    .cartpage-body {
+        padding: 0 1rem;
+    }
+
+    .cartpage-submain2 {
+        width: 50vw;
+    }
+
+    .cartpage-submain2 .product-image {
+        transform: scale(0.8);
+    }
+
+    
+.item-image-button-container {
+  position: absolute;
+  display: flex;
+  top: 96%;
+  left: 50%;
+  width: 50%;
+}
+
+    @media(max-width: 376px) {
+        .cartpage-main {
+            flex-direction: column;
+        }
+
+         .cartpage-submain2 {
+        width: 50vw;
+        margin-top: 1rem;
+    }
+    }
+}

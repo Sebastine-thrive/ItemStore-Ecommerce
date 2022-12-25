@@ -33,6 +33,130 @@ body {
 }
 
 
+::-webkit-scrollbar {
+   width: 0.7em;
+   height: 0.7em;
+}
+
+::-webkit-scrollbar-track {
+   background: var(--primaryColor);
+}
+
+::-webkit-scrollbar-thumb {
+   background: var(--secondaryColor);
+   border: .25em solid var(--primaryColor);
+}
+
+/* for mozilla firefox */
+@supports (scrollbar-color: green purple) {
+   * {
+      scrollbar-color: var(--secondaryColor);
+      scrollbar-width:0.7em ;
+   }
+}
+
+
+.cart-modal {
+   background: white;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   gap: 0.4rem;
+   box-sizing: border-box;
+   width: 27rem;
+   min-height: 38rem;
+   padding: 1rem;
+   overflow-y: auto;
+   position: absolute;
+   border: 1px solid #ddd;
+   z-index: 3;
+   min-height: 14rem;
+   border-radius: 0.5rem;
+   top:4.5rem;
+   right: 2.2rem;
+}
+
+
+.btn-close {
+   width: 2rem;
+   height: 2rem;
+   position: relative;
+   background: red;
+   border-radius: 30%;
+   align-self: flex-end;
+   cursor: pointer;
+   font-weight: 900;
+}
+
+.sidebar {
+   display: none;
+}
+
+
+@media(max-width: 769px) {
+   
+.sidebar {
+   display: block;
+   position: fixed;
+   top: 0;
+   width: 20rem;
+   height: 50vh ;
+   /* margin-top: 5rem; */
+   margin-left: 0;
+   padding-left: 1rem;
+   background: var(--primaryColor);
+   z-index:3;
+}
+
+.sidebar-overlay {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   width: 100%;
+   background: rgba(0,0, 0, 0.1);
+   backdrop-filter: blur(2px);
+   z-index: 1;
+}
+
+}
+
+@media(max-width: 600px) {
+}
+
+@media(max-width: 415px) {
+   .cart-modal {
+            right: -1rem;
+      transform: scale(0.85);
+   }
+}
+
+@media(max-width: 376px) {
+      .cart-modal {
+         top: 2rem;
+      right: -1.8rem;
+      transform: scale(0.8);
+   }
+}
+
+@media(max-width: 321px) {
+   .cart-modal {
+      top: 2rem;
+      right: -3.2rem;
+      transform: scale(0.7);
+}
+}
+
+
+@media(max-width: 281px){
+   .cart-modal {
+      top: 1rem;
+      right: -4.5rem;
+      transform: scale(0.65);
+}
+}
+
 .dark-background {
    background-color: rgba(0, 0, 0, 0.5);
    position:fixed;

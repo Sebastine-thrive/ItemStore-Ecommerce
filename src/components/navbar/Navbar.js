@@ -1,15 +1,23 @@
 import { Component } from "react";
-import { Link, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import NavButton from "./NavButton";
 import DropdownList from "./DropdownList";
-import CartCard from "./CartCard";
+import { connect } from 'react-redux';
 
-
-// import { NavButton, DropdownList, CartCard, } from "./NavbarComponents";
 import { FiShoppingCart } from 'react-icons/fi';
 import { BsFillBagCheckFill } from "react-icons/bs";
-import "./NavbarStyles.css";
+import { AiOutlineMenu } from 'react-icons/ai';
 
+import "./nav.css";
+
+
+
+const mapStateToProps = (state) => {
+    return {
+        quantity: state.totalQuantity,
+        itemsList:state.itemsList
+    }
+}
 
 class Navbar extends Component {
 
@@ -18,65 +26,65 @@ class Navbar extends Component {
         this.state = {
             isCartOpen: false,
         }
-        this.handleClick = this.handleClick.bind(this);
-        this.generalClick = this.generalClick.bind(this);
-        // this.remove = this.remove.bind(this);
+     
     }
-
-    handleClick() {
-        var mainBody = document.getElementById('mainbody')
-        mainBody.classList.toggle("dark-background");
-
-        var inactive = document.querySelector('.dark-background')
-        inactive.addEventListener('click', (event) => {
-            event.preventDefault();
-        });
-    }
-
-    generalClick() {
-        this.handleClick();
-        this.setState({ isCartOpen: true });
-    }
-
     render() {
+        let totalQuantity = this.props.quantity;
 
-        const { isCartOpen } = this.state;
         const { updateState } = this.props;
+        let state = this.props.state;
+        let menu = state.menu;
+                
+        let categoryNameArray = this.props.categoryNameArray;
 
 
         return (
             <div className="nav" >
 
-                <div className='nav-subgroup'>
-                    <nav className='nav-links'>
-                        
-                            <NavLink to="/" exact activeClassName="active" 
-                             active > All </NavLink>
+                <div className='nav-subgroup1'>
+                    <div className='nav-links'>
+
+                        {categoryNameArray?.map((item, index) => {
+                            return (
+                                <NavLink
+                                    to={`/${item.name}`}
+                                    key={index}
+                                    // onClick={() => updateState({...this.props.state, menu: item.name})}
+                                    exact="true"
+                                > {item.name} </NavLink>
+                            )
+                        })}
+                    </div>
+
+                    <div
+                        className='outline-links'
+                        onClick={() => updateState({ ...this.props.state, sideMenu:true})}
                     
+                    >
+                        <NavButton
+                            color='#6082B6'
+                            fontSize='1.5rem'
+                            border='none'
+                            backgroundColor='transparent'
+                            icon={<AiOutlineMenu />}
+                            cursor='pointer'
+                            // onClick={() => updateState({ ...this.props.state, sideMenu:true })}
 
-                        
-                            <NavLink to='/clothes' activeClassName="active"> Clothes </NavLink>
-                        
-
-                        
-                            <NavLink to='/tech' activeClassName="active"> Tech </NavLink>
-                        
-                    </nav>
+                        // customFunc={() => setActiveMenu(true) }
+                        />
+                    </div>
                 </div>
 
                 <div className="nav-subgroup">
-                    <Link to='/product'>
-                        <NavButton
-                            color='#03C03C'
-                            fontSize='1.8rem'
-                            border='none'
-                            backgroundColor='transparent'
-                            icon={<BsFillBagCheckFill
-                                cursor='pointer'
+                    <NavButton
+                        color='#03C03C'
+                        fontSize='1.8rem'
+                        border='none'
+                        backgroundColor='transparent'
+                        icon={<BsFillBagCheckFill />}
+                        cursor='pointer'
 
-                            />}
-                        />
-                    </Link>
+                    />
                 </div>
 
                 <div className="nav-subgroup ">
@@ -85,6 +93,7 @@ class Navbar extends Component {
                             color='#6082B6'
                             fontSize='1.3rem'
                             updateState={updateState}
+                            state={state}
                         />
 
                     </div>
@@ -92,21 +101,22 @@ class Navbar extends Component {
                     <div className="cart-features">
                         <NavButton
                             color='#6082B6'
-                            fontSize='1.2rem'
+                            fontSize='1.1rem'
                             border='none'
                             backgroundColor='transparent'
                             id='cart'
                             icon={<FiShoppingCart />}
                         />
-                        <button
-                            className='dot-button'
-                            onClick={this.generalClick}
-                        >
-                            {/* CN */}
-                        </button>
 
-                        {isCartOpen && <CartCard
-                        />}
+                        {totalQuantity >= 1 ? (
+                            <button
+                                className='badge-button'
+                                onClick={() => updateState({...this.props.state, cartModalOpen: true})}
+                            >
+                                {totalQuantity}
+                            </button>
+
+                         ) : null}
 
                     </div>
 
@@ -115,5 +125,6 @@ class Navbar extends Component {
             </div>
         )
     }
-};
-export default Navbar
+}
+
+export default connect(mapStateToProps)(Navbar);

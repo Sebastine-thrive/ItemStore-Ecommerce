@@ -3,10 +3,15 @@
     font-family: Arial;
     line-height: 3rem;
     display: flex;
+    align-items: center;
+    justify-items: center;
     justify-Content: space-between;
     padding: var(--paddingX);
-    background-color: #F0FFF0;
-    /* border-bottom: 8px solid var(--primaryColor); */
+    background: #ecf0f3;
+    position:fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
     box-shadow: 0 -15px 2px #D3D3D3;
     -moz-box-shadow: 0 -15px 2px #D3D3D3;
     -webkit-box-shadow:0 -15px 2px #D3D3D3;
@@ -21,36 +26,31 @@
 
 .nav-links {
    display: flex;
-   align-items: "center" 
+   padding-bottom:0 ;
+   margin-bottom:-0.5rem ;
   }
 
-.nav-links li {
-   text-transform: uppercase;
-   list-style: none;
+  .outline-links {
+    display: none;
   }
 
 .nav-links a {
    display: inline-block;
    text-decoration: none;
+   text-transform: uppercase;
    font-weight: bold;
    margin-right: 1rem;
-   color:var(--primaryColor)
+   color:var(--primaryColor);
+   margin-bottom: 0;
   }
 
   .nav-links a:hover{
     color:var(--secondaryColor) ;
   }
 
-   /* .nav-links a:active { */
-    /* color: green; */
-    /* background-color: red; */
-    /* text-decoration: underline; */
-	  /* text-decoration-color:  var(--secondaryColor); */
-    /* under: 12px solid var(--secondaryColor); */
-  /* } */
-
-  .active {
-    color: var(--primaryColor)
+  .nav-links .active {
+    color:#03C03C; 
+    border-bottom: 5px solid #03C03C; 
   }
 
   
@@ -74,7 +74,6 @@ display: none;
 
 .cart-features {
   margin-left: 1rem;
-  /* padding: 0 0.5rem; */
 }
 
 .cart{
@@ -98,24 +97,28 @@ right:3rem
   display: none;
 }
 
-.dot-button {
+.badge-button {
   position:absolute;
   display: inline-flex;
+  box-sizing: border-box;
   align-items: center;
-  height: 1rem;
-  width:1rem;
-  top: 0.7rem;
-  right: 2.6rem;
+  min-height: 1.1rem;
+  min-width:1rem;
+  padding-left: 0.2rem;
+  padding-right: 0.1rem;
+  top: -1rem;
+  right: 0.2rem;
   cursor: pointer;
-  font-size: 0.6rem;
+  font-size: 11px;
   background-color:black;
   color:white;
-  border-radius: 50%;
+  border-radius: 45%;
+  position: relative;
 }
-
-.dot-button :hover{
+/* 
+.badge-button :hover{
   background-color: aqua;
-}
+} */
 
 .dark-segment {
  background-color: rgba(0, 0, 0, 0.5);
@@ -124,6 +127,18 @@ right:3rem
  top: 0; 
 }
 
-.cartcard-display {
-  background-color: white;
+
+/* Media Queries */
+
+@media(max-width: 769px) {
+  .nav-links {
+    display: none;
+  }
+
+  .outline-links {
+    display: block;
+    margin-top: 0.5rem;
+  }
 }
+
+

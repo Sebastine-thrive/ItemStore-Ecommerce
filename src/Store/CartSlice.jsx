@@ -38,7 +38,6 @@ const cartSlice = createSlice({
                     totalPoundAmount: newItem.poundAmount,
 
                     quantity: 1,
-                    // totalPrice: newItem.price,
                     name: newItem.name,
                     brand: newItem.brand,
                     attribute: newItem.attribute,
@@ -56,17 +55,13 @@ const cartSlice = createSlice({
             let existingItem = state.itemsList.find(item => item.id === id);
             if (existingItem.quantity === 1) {
                 state.itemsList = state.itemsList.filter(item => item.id !== id);
-                // existingItem.quantity = 0;
                 state.totalQuantity -= existingItem.quantity;
 
             } else {
                 existingItem.quantity--;
                 existingItem.totalYenAmount -= existingItem.yenAmount
-
                 existingItem.totalDollarAmount -= existingItem.dollarAmount
-
                 existingItem.totalPoundAmount -= existingItem.poundAmount
-
                 state.totalQuantity--;
 
             }

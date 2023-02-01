@@ -7,11 +7,9 @@ import './ProductDescription.css';
 import Loading from "../../components/loading/Loading";
 import DOMPurify from 'dompurify';
 import { connect } from "react-redux";
-import { addToCart } from "../../store/Cart-slice";
+import { addToCart } from "../../store/CartSlice";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import { Link } from "react-router-dom";
-
 
 
 const mapStateToProps = (state) => {
@@ -33,7 +31,6 @@ class ProductDescription extends Component {
             singleItemDetails: {},
             selectedAttr: null
         }
-
 
         const errorLink = onError(({ graphqlErrors, networkError }) => {
             if (graphqlErrors) {
@@ -57,7 +54,6 @@ class ProductDescription extends Component {
         this.client = new ApolloClient({
             cache: new InMemoryCache(),
             link
-            // uri: "http://localhost:4000/" 
         });
     }
 
@@ -91,7 +87,6 @@ class ProductDescription extends Component {
 
 
         const { singleItemDetails } = this.state;
-
         const { selectedId } = this.props;
 
         let state = this.props.state;
@@ -102,25 +97,29 @@ class ProductDescription extends Component {
 
 
         if (singleItemDetails?.data === undefined)
-            return <Loading />
+            return (
+                <>
+                    <Loading />
+                    <h2 className="fetching_error"> Error fetching product details </h2>
+                    <h3 className="loading">Please wait... </h3>
+                </>
+            )
 
         if (singleItemDetails.loading)
-            return <Loading />
-
+            return (
+                <>
+                    <Loading />
+                    <h2 className="loading"> Loading product details </h2>
+                </>
+            )
 
 
         const singleItem = singleItemDetails?.data?.product, attributeItem = singleItem?.attributes[0]?.items;
-        // console.log(attributeItem);
         let selectedAttr = this.state.selectedAttr, lastAttribute = attributeItem[attributeItem.length - 1].value, attribute = singleItem?.attributes[0];
-
         let gallery = singleItem?.gallery, mainImageSource = singleItem?.gallery[0];
-
         let description = singleItem?.description;
-
         let price = singleItem?.prices, dollarCurrency = price[0]?.currency?.symbol, dollarAmount = price[0]?.amount, dollarPrice = dollarCurrency + ' ' + dollarAmount
-
         let poundCurrency = price[1].currency?.symbol, poundAmount = price[1]?.amount, poundPrice = poundCurrency + ' ' + poundAmount;
-
         let yenCurrency = price[3].currency?.symbol, yenAmount = price[3]?.amount, yenPrice = yenCurrency + ' ' + yenAmount;
 
 
@@ -134,16 +133,15 @@ class ProductDescription extends Component {
                 attributeValue: selectedAttr || lastAttribute || null,
                 attribute: attribute?.name || null,
 
-                yenCurrency: yenCurrency,
-                dollarCurrency: dollarCurrency,
-                poundCurrency: poundCurrency,
+                yenCurrency,
+                dollarCurrency,
+                poundCurrency,
 
-                yenAmount: yenAmount,
-                dollarAmount: dollarAmount,
-                poundAmount: poundAmount,
+                yenAmount,
+                dollarAmount,
+                poundAmount,
             })
         }
-
 
         this.notify = () => {
             toast('item Added Successfully!');
@@ -153,7 +151,6 @@ class ProductDescription extends Component {
             this.addItemToCart();
             this.notify();
         }
-
 
         return (
             <div className="pdt-desc-body">
@@ -189,7 +186,6 @@ class ProductDescription extends Component {
 
                                 {(attribute && attribute?.type === 'text') ? (
                                     attributeItem.map((item, index) => (
-
                                         <div className="box" key={index}
                                         >
                                             <ul
@@ -200,7 +196,6 @@ class ProductDescription extends Component {
                                                         name={attribute?.name}
                                                         value={item?.value}
                                                         onFocus={this.onChangeValue}
-
                                                         defaultChecked
                                                     />
                                                     <label htmlFor={item?.value} > {item?.value}</label>
@@ -215,7 +210,6 @@ class ProductDescription extends Component {
                                     attributeItem.map((piece, index) => (
 
                                         <div className="box" key={index}
-                                        // onChange={onChangeValue}
                                         >
                                             <ul>
                                                 <li>
@@ -253,7 +247,6 @@ class ProductDescription extends Component {
                         <button
                             className="add-to-cart-button"
                             onClick={() => this.cartAddition()}
-
                         >
                             ADD TO CART
                         </button>
@@ -261,10 +254,10 @@ class ProductDescription extends Component {
                             position="top-center"
                             autoClose={1000}
                         />
-
-
                         <div className="description">
                             <h4> <strong> Description </strong> </h4>
+
+                            {/* Sanitize Description */}
 
                             <p>   {DOMPurify.sanitize(description,
                                 {
@@ -275,8 +268,6 @@ class ProductDescription extends Component {
 
 
                         </div>
-
-
                     </div>
                 </div>
 

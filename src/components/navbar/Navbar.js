@@ -1,9 +1,8 @@
 import { Component } from "react";
-import {  NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import NavButton from "./NavButton";
-import DropdownList from "./DropdownList";
+import CurrencyDropdownList from "./CurrencyConverter";
 import { connect } from 'react-redux';
-
 import { FiShoppingCart } from 'react-icons/fi';
 import { BsFillBagCheckFill } from "react-icons/bs";
 import { AiOutlineMenu } from 'react-icons/ai';
@@ -15,7 +14,7 @@ import "./nav.css";
 const mapStateToProps = (state) => {
     return {
         quantity: state.totalQuantity,
-        itemsList:state.itemsList
+        itemsList: state.itemsList
     }
 }
 
@@ -26,15 +25,14 @@ class Navbar extends Component {
         this.state = {
             isCartOpen: false,
         }
-     
+
     }
     render() {
         let totalQuantity = this.props.quantity;
 
         const { updateState } = this.props;
         let state = this.props.state;
-        let menu = state.menu;
-                
+
         let categoryNameArray = this.props.categoryNameArray;
 
 
@@ -47,9 +45,8 @@ class Navbar extends Component {
                         {categoryNameArray?.map((item, index) => {
                             return (
                                 <NavLink
-                                    to={`/${item.name}`}
                                     key={index}
-                                    // onClick={() => updateState({...this.props.state, menu: item.name})}
+                                    to={`/${item.name}`}
                                     exact="true"
                                 > {item.name} </NavLink>
                             )
@@ -58,8 +55,8 @@ class Navbar extends Component {
 
                     <div
                         className='outline-links'
-                        onClick={() => updateState({ ...this.props.state, sideMenu:true})}
-                    
+                        onClick={() => updateState({ ...this.props.state, sideMenu: true })}
+
                     >
                         <NavButton
                             color='#6082B6'
@@ -68,9 +65,7 @@ class Navbar extends Component {
                             backgroundColor='transparent'
                             icon={<AiOutlineMenu />}
                             cursor='pointer'
-                            // onClick={() => updateState({ ...this.props.state, sideMenu:true })}
 
-                        // customFunc={() => setActiveMenu(true) }
                         />
                     </div>
                 </div>
@@ -89,13 +84,12 @@ class Navbar extends Component {
 
                 <div className="nav-subgroup ">
                     <div className="dropdown-body">
-                        <DropdownList
+                        <CurrencyDropdownList
                             color='#6082B6'
                             fontSize='1.3rem'
                             updateState={updateState}
                             state={state}
                         />
-
                     </div>
 
                     <div className="cart-features">
@@ -111,17 +105,13 @@ class Navbar extends Component {
                         {totalQuantity >= 1 ? (
                             <button
                                 className='badge-button'
-                                onClick={() => updateState({...this.props.state, cartModalOpen: true})}
+                                onClick={() => updateState({ ...this.props.state, cartModalOpen: true })}
                             >
                                 {totalQuantity}
                             </button>
-
-                         ) : null}
-
+                        ) : null}
                     </div>
-
                 </div>
-
             </div>
         )
     }

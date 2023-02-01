@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { addToCart, removeFromCart } from "../../store/Cart-slice";
+import { addToCart, removeFromCart } from "../../store/CartSlice";
 import { connect } from "react-redux";
-
-
-
 import "./cart.css";
 
 
@@ -42,7 +39,6 @@ export class CartItem extends Component {
       this.decrementCartItems = () => {
           this.props.removeFromCart(id)
       }
-    //   console.log(state)
     return (
         <>
             <div className="cart-main" key={`${id} ${attributeValue}`}>
@@ -54,10 +50,10 @@ export class CartItem extends Component {
                         {dollarCurrency} {dollarAmount?.toFixed(2)} </h5>)}
 
                     {postYen && (<h5>
-                        {yenCurrency} {yenAmount.toFixed(2)} </h5>)}
+                        {yenCurrency} {yenAmount?.toFixed(2)} </h5>)}
 
                     {postPounds && (<h5>
-                        {poundCurrency} {poundAmount} </h5>)}
+                        {poundCurrency} {poundAmount?.toFixed(2)} </h5>)}
 
 
                     {postDollar && (<h5 className='pdt-amount'>  {dollarCurrency}  {totalDollarAmount?.toFixed(2)} </h5>)}

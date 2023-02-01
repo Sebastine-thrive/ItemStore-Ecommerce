@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "./nav.css";
 
-export default class DropdownList extends Component {
+export default class CurrencyDropdownList extends Component {
     constructor(props) {
         super(props);
-        this.state = JSON.parse(window.localStorage.getItem('state')) ||
+        this.state = JSON.parse(localStorage.getItem('state')) ||
         {
             displayedCurrency: '$'
         }
@@ -12,25 +12,29 @@ export default class DropdownList extends Component {
 
     render() {
         const { displayedCurrency } = this.state;
-        const { color, fontSize } = this.props;
-        const { updateState } = this.props;
-        const {state} = this.props
-      
+        const { color, fontSize, updateState } = this.props;
+
 
         const setCurrency = (e) => {
 
+            if (displayedCurrency === "$") {
+                updateState({
+                    ...this.props.state, postPounds: false, postDollar: true, postYen: false
+                })
+            }
+
             if (e.target.value === '¥') {
-                updateState({ ...this.props.state,  postPounds: false, postDollar: false, postYen: true, displayedCurrency: '¥' });
+                updateState({ ...this.props.state, postPounds: false, postDollar: false, postYen: true, displayedCurrency: '¥' });
 
             } else if (e.target.value === '£') {
                 updateState({
-                    ...this.props.state, 
+                    ...this.props.state,
                     postPounds: true, postDollar: false, postYen: false, displayedCurrency: '£'
                 })
 
             }
             else if (e.target.value === '$') {
-                updateState({ ...this.props.state,  postPounds: false, postDollar: true, postYen: false, displayedCurrency: '$' })
+                updateState({ ...this.props.state, postPounds: false, postDollar: true, postYen: false, displayedCurrency: '$' })
             }
         }
 
@@ -43,7 +47,7 @@ export default class DropdownList extends Component {
                     style={{ color, fontSize }}
                     onChange={(e) => setCurrency(e)}
                 >
-                    <option role="placeholder" id='hidden-option'>
+                    <option  id='hidden-option'>
                         {displayedCurrency}
                     </option>
 

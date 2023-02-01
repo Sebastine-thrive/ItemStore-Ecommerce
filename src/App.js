@@ -2,12 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import { GET_ANY_CATEGORY } from "./components/graphQl/Queries";
-
-import { connect } from 'react-redux';
-import ProductDescription from "./pages/productDescription/ProductDescription";
-
-
-import './App.css';
+import ProductDescription from "./pages/productDescription/ProductDescription.jsx";
 
 import {
   ApolloClient,
@@ -18,6 +13,7 @@ import Product from "./pages/productList/Product";
 import Cart from "./components/cart/Cart";
 import CartPage from "./pages/cartPage/CartPage";
 import Sidebar from "./components/sidebar/Sidebar";
+import './App.css';
 
 
 const client = new ApolloClient({
@@ -39,7 +35,6 @@ export default class App extends Component {
       productCategory: '',
       cartModalOpen: false,
       selectedId: '',
-      // menu: 'all',
       sideMenu: false
     }
 
@@ -48,8 +43,6 @@ export default class App extends Component {
       cache: new InMemoryCache(),
       uri: "http://localhost:4000/"
     });
-
-    // this.addToCart = this.addToCart.bind(this)
   }
 
 

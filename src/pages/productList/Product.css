@@ -8,12 +8,11 @@
   margin: 2rem 0.3rem  0;
 }
 
-
 .error {
   color: red;
   text-align: center;
   font-size: 1.5rem;
-  margin-top: 6rem;
+  margin-top: 4rem;
 }
 
 .product-body {
@@ -39,9 +38,7 @@
 
 .productcard:hover {
   box-shadow: 2px 2px 2px 2px var(--secondaryColor);
-    /* transform: scale(1.1,1.1) */
 } 
-
 
 .overlay {
    position: fixed;
@@ -108,9 +105,8 @@
 @media(max-width: 769px) {
 .productcard-img-container {
 
- width: 16rem; 
+  width: 16rem; 
   height: 15rem; 
-  /* object-fit: cover; */
 }
 
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { addToCart, removeFromCart } from '../../store/Cart-slice';
+import { addToCart, removeFromCart } from '../../store/CartSlice';
 import { connect } from "react-redux";
 import CartPageItemImageContainer from './CartPageImageContainer';
 import './cartPage.css';
@@ -16,13 +16,11 @@ const mapDispatchToProps = {
 };
 
 export class CartPageItem extends Component {
-
     render() {
         const { id, name, brand, totalDollarAmount, totalPoundAmount, totalYenAmount, attribute, attributeValue, quantity, image, imageGallery, poundAmount, poundCurrency, dollarAmount, dollarCurrency, yenAmount, yenCurrency } = this.props;
 
         const { state } = this.props;
         let postDollar = state.postDollar, postYen = state.postYen, postPounds = state.postPounds;
-
 
         this.incrementCartItems = () => {
             this.props.addToCart({
@@ -85,7 +83,6 @@ export class CartPageItem extends Component {
                                 <CartPageItemImageContainer data={imageGallery} />
                             </div>
                             )
-                        
                         }
                     </div>
                 </div>

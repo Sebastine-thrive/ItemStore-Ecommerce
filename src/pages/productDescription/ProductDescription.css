@@ -37,6 +37,20 @@
     margin-top: 0;
 }
 
+.fetching_error {
+  color: red;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 4rem;
+}
+
+.loading {
+  color: var(--secondaryColor);
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
 .small-image {
     border-radius: 8px;
     background-color: #ebebeb;
@@ -79,7 +93,6 @@
 }
 .pdt-attr {
     text-transform: uppercase;
-
 }
 
 .pdt-desc-attr{

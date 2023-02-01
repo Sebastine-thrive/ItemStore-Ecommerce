@@ -4,7 +4,6 @@ import { GET_ANY_PRODUCT } from '../../components/graphQl/Queries';
 import {
     ApolloClient,
     InMemoryCache,
-    ApolloProvider,
 } from "@apollo/client";
 import ProductDisplay from '../../components/productDisplay/ProductDisplay';
 import Loading from '../../components/loading/Loading';
@@ -18,11 +17,10 @@ export class Product extends Component {
         {
             product: {}
         }
-
         this.client = new ApolloClient({
             cache: new InMemoryCache(),
             uri: "http://localhost:4000/"
-        });
+        })
     }
 
     componentDidMount() {
@@ -50,28 +48,19 @@ export class Product extends Component {
     render() {
 
         const { updateState } = this.props;
-
         let state = this.props.state;
-        // console.log(state)
-        let currency = state?.currency;
-        let menu = state?.menu;
-        // console.log(this.props.itemName)
 
-        let selectedId = state?.selectedId;
-        let cartModalOpen = state?.cartModalOpen;
+        let selectedId = state?.selectedId, cartModalOpen = state?.cartModalOpen;
 
 
-        let x = this.state.product?.data?.category;
-
-        let products = x?.products;
-
-
+        let productCategory = this.state.product?.data?.category;
+        let products = productCategory?.products;
 
         if (this.state.product.data === undefined) {
             return (
                 <>
                     <Loading />
-                    <h2 className='error'> Sorry! Unable to fetch data </h2>
+                    <h2 className='error'> Sorry! Currently unable to fetch data </h2>
                 </>
             )
         }
@@ -80,17 +69,15 @@ export class Product extends Component {
             return (
                 <>
                     <Loading />
-                    <h2 className='error'> Please wait... </h2>
-
+                    <h2 className='error'> Loading, Please wait... </h2>
                 </>
             )
         }
 
         if (this.state.product.data) {
-
             return (
                 <div className='mainbody'>
-                    <h3 className='heading'> {x?.name} <span> Items</span></h3>
+                    <h3 className='heading'> {productCategory?.name} <span> Items</span></h3>
 
                     <ProductDisplay
                         products={products}

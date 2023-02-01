@@ -22,7 +22,6 @@ class Cart extends Component {
     let overallDollarTotal = 0, overallPoundsTotal = 0, overallYenTotal = 0;
 
     let cartItems = this.props.itemsList;
-    // console.log(cartItems)
 
     cartItems.forEach((item) => {
       overallYenTotal += item.totalYenAmount;
@@ -33,7 +32,6 @@ class Cart extends Component {
     let itemsQuantity = this.props.quantity;
     let state = this.props.state;
 
-    // let cartModalOpen = state.cartModalOpen;
     let postDollar = state.postDollar, postYen = state.postYen, postPounds = state.postPounds;
 
     return (
@@ -73,8 +71,6 @@ class Cart extends Component {
               quantity={item.quantity}
               image={item.imageSrc}
               attributeValue={item?.attributeValue}
-
-            // priceCurrency={priceCurrency}
             />
           </li>
         )

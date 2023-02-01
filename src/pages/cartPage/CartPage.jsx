@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
-import { addToCart, removeFromCart } from "../../store/Cart-slice";
+import { addToCart, removeFromCart } from "../../store/CartSlice";
 
 import './cartPage.css';
 import CartPageItem from './CartPageItem';
@@ -22,10 +22,7 @@ const mapDispatchToProps = {
 
 
 export class CartPage extends Component {
-    constructor(props) {
-        super(props);
-    }
-
+   
 
     render() {
         const { state } = this.props;
@@ -33,10 +30,8 @@ export class CartPage extends Component {
 
         let cartModalOpen = state.cartModalOpen
 
-
         let cartItems = this.props.itemsList;
         let itemsQuantity = this.props.itemsQuantity;
-        // console.log(cartItems)
 
         let dollarTotal = 0, poundsTotal = 0, yenTotal = 0;
         cartItems.forEach((item) => {

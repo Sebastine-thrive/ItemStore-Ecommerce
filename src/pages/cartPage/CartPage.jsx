@@ -13,12 +13,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-
 const mapDispatchToProps = {
     addToCart,
     removeFromCart,
 };
-
 
 export class CartPage extends Component {
    

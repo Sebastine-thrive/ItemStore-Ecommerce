@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import { addToCart, removeFromCart } from "../../store/CartSlice";
-
-import './cartPage.css';
 import CartPageItem from './CartPageItem';
+import './cartPage.css';
 
 
 const mapStateToProps = (state) => {
@@ -14,12 +13,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-
 const mapDispatchToProps = {
     addToCart,
     removeFromCart,
 };
-
 
 export class CartPage extends Component {
    
